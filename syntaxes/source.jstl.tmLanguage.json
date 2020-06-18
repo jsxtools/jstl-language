@@ -1,0 +1,37 @@
+{
+  "name": "JavaScript Template Literal",
+  "scopeName": "source.jstl",
+  "patterns": [
+    {
+      "include": "#frontmatter"
+    },
+    {
+      "include": "source.tsx#template-substitution-element"
+    },
+    {
+      "include": "text.html.basic"
+    }
+  ],
+  "repository": {
+    "frontmatter": {
+      "begin": "\\A-{3}\\s*$",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.xi.begin.t"
+        }
+      },
+      "contentName": "meta.embedded.block.frontmatter",
+      "patterns": [
+        {
+          "include": "source.yaml"
+        }
+      ],
+      "end": "(^|\\G)-{3}|\\.{3}\\s*$",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.xi.end.t"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "scopeName": "text.html.basic.jstl",
+  "injectionSelector": "L:text.html",
+  "patterns": [
+    {
+      "include": "#jstl-script-tag"
+    }
+  ],
+  "repository": {
+    "jstl-script-tag": {
+      "name": "meta.embedded.block.html",
+      "begin": "(<)(script)\\b(?=[^>]*type=(text/jstl|'text/jstl'|\"text/jstl\"))(?![^/>]*/>\\s*$)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.begin.html"
+        },
+        "2": {
+          "name": "entity.name.tag.script.html"
+        }
+      },
+      "end": "(</)(script)(>)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.begin.html"
+        },
+        "2": {
+          "name": "entity.name.tag.script.html"
+        },
+        "3": {
+          "name": "punctuation.definition.tag.end.html"
+        }
+      },
+      "patterns": [
+        {
+          "name": "entity.other.attribute-name.html",
+          "match": "\\b([a-zA-Z\\-:_]+)"
+        },
+        {
+          "name": "string.quoted.double.html, string.quoted.single.html",
+          "match": "(\"|').*?(\"|')"
+        },
+        {
+          "name": "meta.embedded.block.css",
+          "begin": "(>)",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.tag.end.html"
+            }
+          },
+          "end": "(?=</script>)",
+          "patterns": [
+            {
+              "include": "source.jstl"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
