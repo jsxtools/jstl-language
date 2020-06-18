@@ -3,17 +3,14 @@
   "scopeName": "source.jstl",
   "patterns": [
     {
-      "include": "#frontmatter"
+      "include": "#head"
     },
     {
-      "include": "source.tsx#template-substitution-element"
-    },
-    {
-      "include": "text.html.basic"
+      "include": "#body"
     }
   ],
   "repository": {
-    "frontmatter": {
+    "head": {
       "begin": "\\A-{3}\\s*$",
       "beginCaptures": {
         "0": {
@@ -32,6 +29,16 @@
           "name": "punctuation.definition.tag.xi.end.t"
         }
       }
+    },
+    "body": {
+      "patterns": [
+        {
+          "include": "source.tsx#template-substitution-element"
+        },
+        {
+          "include": "text.html.basic"
+        }
+      ]
     }
   }
 }

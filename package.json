@@ -1,6 +1,6 @@
 {
   "name": "jstl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "JSTL Language Support",
   "description": "JSTL Language Support adds support for JavaScript Template Literal files in Visual Studio Code",
   "author": "Jonathan Neal <jonathantneal@hotmail.com>",
@@ -63,5 +63,37 @@
         }
       }
     ]
-  }
+  },
+  "keywords": [
+    "11ty",
+    "block",
+    "blocks",
+    "eleventy",
+    "highlight",
+    "highlights",
+    "highlighter",
+    "htm",
+    "html",
+    "javascript",
+    "js",
+    "jstl",
+    "jsx",
+    "language",
+    "languages",
+    "literal",
+    "literals",
+    "markdown",
+    "md",
+    "plugin",
+    "source",
+    "support",
+    "supports",
+    "syntax",
+    "template",
+    "templates",
+    "templating",
+    "text",
+    "tl",
+    "vscode"
+  ]
 }
