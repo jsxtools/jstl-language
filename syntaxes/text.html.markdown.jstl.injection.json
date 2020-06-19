@@ -1,13 +1,14 @@
 {
+  "name": "JSTL Markdown Block",
   "scopeName": "text.html.markdown.jstl",
   "injectionSelector": "L:text.html.markdown",
   "patterns": [
     {
-      "include": "#fence"
+      "include": "#fenced_code_block_jstl"
     }
   ],
   "repository": {
-    "fence": {
+    "fenced_code_block_jstl": {
       "name": "markup.fenced_code.block.markdown",
       "begin": "(^|\\G)(\\s*)(`{3,}|~{3,})\\s*(?i:(jstl)((\\s+|:|\\{)[^`~]*)?$)",
       "beginCaptures": {
@@ -38,46 +39,20 @@
               "end": "(?<=\\s*([`~]{3,})\\s*$)(^|\\G)",
               "patterns": [
                 {
-                  "include": "#head"
+                  "include": "source.jstl#head"
                 },
                 {
-                  "include": "#body"
+                  "begin": "^(?=\\S)|(?!\\G)",
+                  "end": "(?<=\\s*([`~]{3,})\\s*$)(^|\\G)",
+                  "patterns": [
+                    {
+                      "include": "source.jstl#body"
+                    }
+                  ]
                 }
               ]
             }
           ]
-        }
-      ]
-    },
-    "head": {
-      "begin": "^\\G-{3}\\s*$",
-      "beginCaptures": {
-        "0": {
-          "name": "punctuation.definition.tag.xi.begin.t"
-        }
-      },
-      "end": "^\\G-{3}\\s*$",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.tag.xi.end.t"
-        }
-      },
-      "contentName": "meta.embedded.block.frontmatter",
-      "patterns": [
-        {
-          "include": "source.yaml"
-        }
-      ]
-    },
-    "body": {
-      "begin": "^(?=\\S)|(?!\\G)",
-      "end": "(?<=\\s*([`~]{3,})\\s*$)(^|\\G)",
-      "patterns": [
-        {
-          "include": "source.tsx#template-substitution-element"
-        },
-        {
-          "include": "text.html.basic"
         }
       ]
     }

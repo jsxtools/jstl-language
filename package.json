@@ -1,6 +1,6 @@
 {
   "name": "jstl",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "displayName": "JSTL Language Support",
   "description": "JSTL Language Support adds support for JavaScript Template Literal files in Visual Studio Code",
   "author": "Jonathan Neal <jonathantneal@hotmail.com>",
@@ -39,22 +39,12 @@
     "grammars": [
       {
         "scopeName": "source.jstl",
-        "language": "jstl",
-        "path": "./syntaxes/source.jstl.tmLanguage.json"
-      },
-      {
-        "scopeName": "text.html.basic.jstl",
-        "path": "./syntaxes/text.html.basic.jstl.tmLanguage.json",
-        "injectTo": [
-          "text.html"
-        ],
-        "embeddedLanguages": {
-          "meta.embedded.block.jstl": "jstl"
-        }
+        "path": "./syntaxes/source.jstl.tmLanguage.json",
+        "language": "jstl"
       },
       {
         "scopeName": "text.html.markdown.jstl",
-        "path": "./syntaxes/text.html.markdown.jstl.tmLanguage.json",
+        "path": "./syntaxes/text.html.markdown.jstl.injection.json",
         "injectTo": [
           "text.html.markdown"
         ],
@@ -63,9 +53,14 @@
         }
       },
       {
-        "path": "./syntaxes/text.html.basic.jstl.injection.json",
-        "scopeName": "text.html.basic.jstl.injection",
-        "injectTo": ["source.jstl"]
+        "scopeName": "source.jstl.embedded",
+        "path": "./syntaxes/text.html.basic.jstl.injection.2.json",
+        "injectTo": [
+          "text.html"
+        ],
+        "embeddedLanguages": {
+          "meta.embedded.block.jstl.html": "jstl"
+        }
       }
     ]
   },

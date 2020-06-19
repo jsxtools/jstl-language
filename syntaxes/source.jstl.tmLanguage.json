@@ -1,20 +1,57 @@
 {
   "name": "JavaScript Template Literal",
   "scopeName": "source.jstl",
+  "injections": {
+    "L:meta.tag.structure,L:string.quoted.double.html,L:string.quoted.single.html": {
+      "patterns": [
+        {
+          "include": "#tick"
+        }
+      ]
+    },
+    "R:string.template.tsx": {
+      "patterns": [
+        {
+          "include": "#tl-text"
+        },
+        {
+          "include": "#tl-ttag"
+        },
+        {
+          "include": "#tl-html"
+        }
+      ]
+    }
+  },
   "patterns": [
     {
-      "include": "#head"
+      "include": "#file"
     },
     {
       "include": "#body"
     }
   ],
   "repository": {
+    "file": {
+      "begin": "\\A(?=-{3}\\s*$)",
+      "end": "(?<=\n)",
+      "patterns": [
+        {
+          "include": "#head"
+        }
+      ]
+    },
     "head": {
-      "begin": "\\A-{3}\\s*$",
+      "begin": "^-{3}\\s*$",
       "beginCaptures": {
         "0": {
           "name": "punctuation.definition.tag.xi.begin.t"
+        }
+      },
+      "end": "^-{3}\\s*$",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.xi.end.t"
         }
       },
       "contentName": "meta.embedded.block.frontmatter",
@@ -22,28 +59,22 @@
         {
           "include": "source.yaml"
         }
-      ],
-      "end": "(^|\\G)-{3}|\\.{3}\\s*$",
-      "endCaptures": {
-        "0": {
-          "name": "punctuation.definition.tag.xi.end.t"
-        }
-      }
+      ]
     },
     "body": {
       "patterns": [
         {
-          "include": "#tag"
+          "include": "#tl-ttag"
         },
         {
-          "include": "source.tsx#template-substitution-element"
+          "include": "#tl-tick"
         },
         {
-          "include": "text.html.basic"
+          "include": "#tl-html"
         }
       ]
     },
-    "tag": {
+    "tl-ttag": {
       "begin": "(?i)(<)(?=\\$)",
       "beginCaptures": {
         "1": {
@@ -59,12 +90,25 @@
       "name": "meta.tag.structure.start.html",
       "patterns": [
         {
-          "include": "source.tsx#template-substitution-element"
+          "include": "#tl-tick"
         },
         {
-          "include": "text.html.basic#attribute"
+          "include": "#tl-attr"
         }
       ]
+    },
+    "tl-html": {
+      "include": "text.html.basic"
+    },
+    "tl-text": {
+      "match": "(?<=[`>])[^<`$]+",
+      "name": "meta.tag.content.html.jstl"
+    },
+    "tl-tick": {
+      "include": "source.tsx#template-substitution-element"
+    },
+    "tl-attr": {
+      "include": "text.html.basic#attribute"
     }
   }
 }
