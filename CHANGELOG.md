@@ -1,5 +1,9 @@
 # Changes to JSTL Language Support
 
+## 1.0.4
+
+- Fixed an issue where JSTL within template strings were not parsed correctly.
+
 ## 1.0.3
 
 - Fixed an issue where JSTL within template strings were not parsed correctly.

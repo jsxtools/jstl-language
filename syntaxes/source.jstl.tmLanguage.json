@@ -5,7 +5,7 @@
     "L:meta.tag.structure,L:string.quoted.double.html,L:string.quoted.single.html": {
       "patterns": [
         {
-          "include": "#tick"
+          "include": "#tl-tick"
         }
       ]
     },
