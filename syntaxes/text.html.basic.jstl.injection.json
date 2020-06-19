@@ -1,0 +1,9 @@
+{
+  "scopeName": "text.html.basic.jstl.injection",
+  "injectionSelector": "L:meta.tag.structure,L:string.quoted.double.html,L:string.quoted.single.html",
+  "patterns": [
+    {
+      "include": "source.tsx#template-substitution-element"
+    }
+  ]
+}

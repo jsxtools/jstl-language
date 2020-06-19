@@ -1,6 +1,6 @@
 {
   "name": "jstl",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "JSTL Language Support",
   "description": "JSTL Language Support adds support for JavaScript Template Literal files in Visual Studio Code",
   "author": "Jonathan Neal <jonathantneal@hotmail.com>",
@@ -61,6 +61,11 @@
         "embeddedLanguages": {
           "meta.embedded.block.jstl": "jstl"
         }
+      },
+      {
+        "path": "./syntaxes/text.html.basic.jstl.injection.json",
+        "scopeName": "text.html.basic.jstl.injection",
+        "injectTo": ["source.jstl"]
       }
     ]
   },

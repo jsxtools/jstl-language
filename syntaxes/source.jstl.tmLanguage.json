@@ -33,10 +33,36 @@
     "body": {
       "patterns": [
         {
+          "include": "#tag"
+        },
+        {
           "include": "source.tsx#template-substitution-element"
         },
         {
           "include": "text.html.basic"
+        }
+      ]
+    },
+    "tag": {
+      "begin": "(?i)(<)(?=\\$)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.begin.html"
+        }
+      },
+      "end": ">",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.end.html"
+        }
+      },
+      "name": "meta.tag.structure.start.html",
+      "patterns": [
+        {
+          "include": "source.tsx#template-substitution-element"
+        },
+        {
+          "include": "text.html.basic#attribute"
         }
       ]
     }
